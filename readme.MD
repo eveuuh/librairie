@@ -22,4 +22,4 @@ Ce qu'il manque:
 Difficultés:
 - rendre le site responsive
 - définir la taille max
-- 
+- erreur de langue dans le validateur html, ne prends pas la langue fr en compte ?
