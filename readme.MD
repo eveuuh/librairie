@@ -5,6 +5,7 @@ Ce qui est fait :
 - fichier readme fait.
 - HTML Validator ok.
 - CSS validator ok.
+- hover li footer ajouté.
 
 
 Ce qu'il manque:
