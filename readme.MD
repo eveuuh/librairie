@@ -7,16 +7,16 @@ Ce qui est fait :
 - CSS validator ok.
 - hover li footer ajouté.
 - définir la taille max
+- etape 2 : design responsive (cf bulle mauve)
 - etape 3: rendre le site dynamique
 - retourner 3 livres differents 
 - footer et cards responsive
 -banner responsive
 
 Ce qu'il manque:
-- navbar
+- navbar menu hamburger
 - construction CSS cohérente (utiliser ID si classe unique)
 - Documenté /commenter le code
-- etape 2 : design responsive (cf bulle mauve)
 - etape4: intégration API google 
 - etape 5: fabriquer sa propre API
 - envoyer livrable sur simplon online
