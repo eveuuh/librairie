@@ -12,6 +12,7 @@ main {
 }
 .container {
     max-width: 1000px;
+    justify-content: center;
     
 }
 
@@ -92,6 +93,9 @@ nav {
 
 }
 
+
+
+
 /** banner **/
 
 .banner {
@@ -99,6 +103,7 @@ nav {
     margin-bottom: 100px;
     margin-top:100px;
     width: 100%;
+    justify-content: space-between;
 }
 
 .banner h1 {
@@ -160,10 +165,30 @@ form {
     display: flex;
     margin-top:64px;
 }
+@media (max-width: 800px){
+    .formbar{
+        display: flex;
+        flex-direction: column;
+    }
+}
 
+@media (max-width: 800px){
+    .banner{
+        display: flex;
+        flex-direction: column;
+    }
+}
 
+.logosite{
+    display: flex;
+}
 /**recommandation**/
 
+@media (max-width: 800px){
+    .card:nth-child(2){
+        display: none;
+    }
+}
 .recommandation {
     display:flex;
 
@@ -176,15 +201,12 @@ form {
     font-weight: bold;
     font-size: 34px;
     line-height: 40px;
-
     color: #4A3174;
 }
 
-.title {
-    display: inline-flex;
-}
+
 .cards{
-    display: inline-flex;
+    display: flex;
 }
 .card {
     width: 293px;
@@ -344,7 +366,7 @@ footer {
 .logofooter{
     display: flex;
     position: relative;
-    left:214px;
+    left:14px;
 }
 
 .bulles {
@@ -422,4 +444,10 @@ li:hover {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0px 4px 20px rgba(158, 158, 158, 0.07);
     border-radius: 3px;
+}
+
+@media (max-width: 800px){
+    ul:nth-child(3){
+        display: none;
+    }
 }

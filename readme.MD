@@ -9,10 +9,11 @@ Ce qui est fait :
 - définir la taille max
 - etape 3: rendre le site dynamique
 - retourner 3 livres differents 
-
+- footer et cards responsive
+-banner responsive
 
 Ce qu'il manque:
-- rendre le site responsive
+- navbar
 - construction CSS cohérente (utiliser ID si classe unique)
 - Documenté /commenter le code
 - etape 2 : design responsive (cf bulle mauve)
