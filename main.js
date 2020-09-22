@@ -1,7 +1,7 @@
 /*const form = document.getElementById('searchbar');*/
 
 /* on creer un tableau associatif de clés valeurs*/
-const books = [{ 
+let books = [{ 
     'title': 'harry potter à l\'ecole des sorciers',
     'author': 'jk rowling',
     'price': 15,
@@ -112,6 +112,27 @@ function afficheLivres(prixMax){
 afficheLivres(18);
 
 
+
+
+/* integration de l'API GOOGLE BOOKS */
+
+
+        
 function RechercheLivres(recherche){
+    let url= ("https://www.googleapis.com/books/v1/volumes?q="+recherche);
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+        let books=JSON.parse(xhr.responseText);
+        console.log(books);
+        document.getElementById("cards").innerHTML=books.items[4].volumeInfo.authors[0];
+    }
+    };
     
+    xhr.open("GET", url, true);
+    xhr.send();
 }
+RechercheLivres("ecmascript");
+    
+   
+
