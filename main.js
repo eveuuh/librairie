@@ -1,4 +1,3 @@
-
 /*const form = document.getElementById('searchbar');*/
 
 /* on creer un tableau associatif de clés valeurs*/
@@ -36,11 +35,16 @@ const books = [{
 /* Afficher 3 livres au hasard*/
 
 function afficheRecommandation(){ 
-    console.log(books[Math.floor(Math.random()*4)]);
-};
-for ( let pas = 0; pas < 3; pas++) {
-    afficheRecommandation();
-};
+    let hasard = [0,1,2,3];
+    hasard.sort(() => Math.random() - 0.5);
+    let results = [];
+    for (i=0; i<3;i ++) {
+        results.push(books[hasard[i]]);
+    }
+    return results; 
+
+}
+afficheRecommandation();
 
 /* afficher les livres inferieurs a 20€ */
 
@@ -52,4 +56,4 @@ function afficheLivres(prixMax){
 
 afficheLivres(18);
 
-    
+   

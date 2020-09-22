@@ -8,13 +8,13 @@ Ce qui est fait :
 - hover li footer ajouté.
 - définir la taille max
 - etape 3: rendre le site dynamique
+- retourner 3 livres differents 
 
 
 Ce qu'il manque:
 - rendre le site responsive
 - construction CSS cohérente (utiliser ID si classe unique)
 - Documenté /commenter le code
-
 - etape 2 : design responsive (cf bulle mauve)
 - etape4: intégration API google 
 - etape 5: fabriquer sa propre API
@@ -23,5 +23,5 @@ Ce qu'il manque:
 
 Difficultés:
 - rendre le site responsive
-- définir la taille max
+- 
 - erreur de langue dans le validateur html, ne prends pas la langue fr en compte ?
