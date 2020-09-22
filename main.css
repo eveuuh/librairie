@@ -10,6 +10,10 @@ main {
     height: 100%;
 
 }
+.container {
+    max-width: 1000px;
+    
+}
 
 
 /** liseré violet**/
@@ -17,6 +21,7 @@ main {
 header{
     background-color: #4A3174;
     height:8px;
+    width: 100%;
 
 }
 
@@ -24,8 +29,7 @@ header{
 nav {
     display: flex;
     justify-content: space-between;
-    max-width: 100%;
-    margin-left: 113px;
+    width: 100%;
     margin-right: 90px;
     max-width: 1000px;
 
@@ -94,6 +98,7 @@ nav {
     display: flex;
     margin-bottom: 100px;
     margin-top:100px;
+    width: 100%;
 }
 
 .banner h1 {
@@ -161,7 +166,6 @@ form {
 
 .recommandation {
     display:flex;
-    margin-left: 113px;
 
 }
 
@@ -181,7 +185,6 @@ form {
 }
 .cards{
     display: inline-flex;
-    margin-left: 114px;
 }
 .card {
     width: 293px;
@@ -237,7 +240,6 @@ form {
 /** items moins de 20€ **/
     /** titre section**/
 .promotion{
-    margin-left:114px;
     display: inline-flex;
 
 }
@@ -253,12 +255,8 @@ form {
 }
 
     /** product cards**/
-.listitems{
-    margin-left:114px;
-}
 
 .card-product{
-    width: 1017px;
     height: 157px;
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(158, 158, 158, 0.07);
@@ -267,6 +265,10 @@ form {
     align-items: center;
     justify-content: space-between;
     padding:15px;
+    width: auto;
+}
+.listitems{
+    width: 100%;
 }
 
 
