@@ -134,7 +134,7 @@ function RechercheLivres(recherche){
         let noBooks=JSON.parse(xhr.responseText); // .items pour recuperer que les books 
         books= noBooks.items;
         console.log(books);  
-        afficheLivres(25);
+        afficheLivres(20);
         afficheRecommandation();         
     }
     };
@@ -156,5 +156,4 @@ function searchByName(){ /*nom de la fonction */
     });
 }
 searchByName();    
-
 

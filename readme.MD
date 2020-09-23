@@ -12,12 +12,13 @@ Ce qui est fait :
 - retourner 3 livres differents 
 - footer et cards responsive
 -banner responsive
+- etape4: intégration API google : continuer à recuperer les infos des livres (titres,images, prix)
+
 
 Ce qu'il manque:
 - navbar menu hamburger
 - construction CSS cohérente (utiliser ID si classe unique)
 - Documenté /commenter le code
-- etape4: intégration API google : continuer à recuperer les infos des livres (titres,images, prix)
 - etape 5: fabriquer sa propre API
 - envoyer livrable sur simplon online
 

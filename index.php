@@ -1,13 +1,8 @@
 <?php
-header('Content-Type: /json');
+header('Content-Type: application/json');
 
 /** objectif : lors d'une requete GET, on renvoie le tableau sous forme de JSON , si le pays et le code postale sont donnés en paramétres on renvoie la temperature correspondante**/
-$books = array("fr" => 
-    array("13000" => ['humidity' => 98, 'temperature' => 20, 'pression'=> 1],
-        "13001" => ['humidity' => 95, 'temperature' => 21, 'pression'=> 1,014],
-        "13002" => ['humidity' => 97, 'temperature' => 23, 'pression'=> 1.022],
-        "13013" => ['humidity' => 94, 'temperature' => 22, 'pression'=> 1.034],)
-);
+$books = sample-api.json; 
 
 $allowedMethods = array('GET');
     
@@ -23,6 +18,6 @@ $allowedMethods = array('GET');
 
     // Ici je récupère les paramètres de la requête s'il y en a
     $recherche = $_GET["recherche"]; 
-
+    echo json_encode($recherche);
 ?>
 <?php 
