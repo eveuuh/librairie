@@ -1,4 +1,3 @@
-/*const form = document.getElementById('searchbar');*/
 
 /* on creer un tableau associatif de clés valeurs*/
 let books = [{ 
@@ -13,11 +12,6 @@ let books = [{
     'author': 'jk rowling',
     'price': 17,
     'image': '',
-    'description':'superbe histoire de sorcelerie'
-    }, 
-    {
-    'title': 'harry potter3',
-    'author': 'jk rowling',
     'price': 22,
     'image': '',
     'description':'superbe histoire de sorcelerie' 
@@ -47,35 +41,47 @@ function afficheRecommandation(){
     for(i=0; i<results.length ;i++){
         let card =document.createElement('div');
         card.classList.add('card'); 
+
         let img = document.createElement('img');
-        img.setAttribute('src','https://via.placeholder.com/150');
+        let imgadress = results[i].volumeInfo.imageLinks != null ? results[i].volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/150"; 
+        img.setAttribute('src',imgadress);
         img.setAttribute('alt','book');
         card.appendChild(img);
+
         let title = document.createElement('p');
-        title.innerText= results[i].title;
+        title.innerText= results[i].volumeInfo.title;
         card.appendChild(title);
+
         let author = document.createElement('p');
-        author.innerText=results[i].author;
+        let authorname = results[i].volumeInfo.author != null ? results[i].volumeInfo.author : "pas de nom d'auteur";
+        author.innerText = authorname; 
         card.appendChild(author);
+
         let price = document.createElement('p');
-        price.innerText = results[i].price + '€';
+        price.innerText = results[i].saleInfo.listPrice != null ? results[i].saleInfo.listPrice.amount +"€" : "pas de prix"; 
         card.appendChild(price);
-       cards.appendChild(card);
+        cards.appendChild(card);
     };
  
 }
-afficheRecommandation();
+//afficheRecommandation();
 
 /* afficher les livres inferieurs a 20€ */
 
 function afficheLivres(prixMax){
-   const result = books.filter(books => books.price < prixMax);
-   console.log(result);
 
-   let listitems = document.getElementById('listitems');
-   listitems.innerHTML="";
-   console.log(listitems);
-   for(i=0; i<result.length ;i++){
+    let bookprice = [];
+        for(i=0; i<books.length ;i++){
+        books[i].saleInfo.listPrice != null ? bookprice.push(books[i]) : '';
+    }
+    const result = bookprice.filter(bookprice => bookprice.saleInfo.listPrice.amount < prixMax);
+    console.log(result);
+
+    let listitems = document.getElementById('listitems');
+    listitems.innerHTML="";
+    console.log(listitems);
+    for(i=0; i<result.length ;i++){
+
        let cardProduct =document.createElement('div');
        cardProduct.classList.add('card-product'); 
 
@@ -83,49 +89,53 @@ function afficheLivres(prixMax){
        cardProductInfo.classList.add('card-product-info');
 
        let img = document.createElement('img');
-       img.setAttribute('src','https://via.placeholder.com/150');
-       img.setAttribute('alt','book');
+       let imgadress = result[i].volumeInfo.imageLinks != null ? result[i].volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/150"; 
+       img.setAttribute('src',imgadress);
+        img.setAttribute('alt','book');
        cardProduct.appendChild(img);
 
        let title = document.createElement('h2');
-       title.innerText= result[i].title;
+       title.innerText= result[i].volumeInfo.title;
        cardProductInfo.appendChild(title);
 
        let author = document.createElement('p');
-       author.innerText=result[i].author;
+       author.innerText=result[i].volumeInfo.authors[0];
        cardProductInfo.appendChild(author);
 
        let description = document.createElement('p');
-       description.innerText=result[i].description;
+       description.innerText=result[i].volumeInfo.description;
        cardProductInfo.appendChild(description);
 
        cardProduct.appendChild(cardProductInfo);
 
        let price = document.createElement('p');
-       price.innerText = result[i].price + '€';
+       price.innerText = result[i].saleInfo.listPrice != null ? result[i].saleInfo.listPrice.amount +"€" : "pas de prix"; 
        cardProduct.appendChild(price);
        
       listitems.appendChild(cardProduct);
    };
 };
 
-afficheLivres(18);
+//afficheLivres(18);
+
+
+
 
 
 
 
 /* integration de l'API GOOGLE BOOKS */
-
-
-        
 function RechercheLivres(recherche){
+ 
     let url= ("https://www.googleapis.com/books/v1/volumes?q="+recherche);
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-        let books=JSON.parse(xhr.responseText);
-        console.log(books);
-        document.getElementById("cards").innerHTML=books.items[4].volumeInfo.authors[0];
+        let noBooks=JSON.parse(xhr.responseText); // .items pour recuperer que les books 
+        books= noBooks.items;
+        console.log(books);  
+        afficheLivres(25);
+        afficheRecommandation();         
     }
     };
     
@@ -133,6 +143,18 @@ function RechercheLivres(recherche){
     xhr.send();
 }
 RechercheLivres("ecmascript");
-    
-   
+
+
+/* rendre la barre de recherche fonctionnelle*/   
+
+function searchByName(){ /*nom de la fonction */
+    let submitButton=document.getElementById("search"); 
+    submitButton.addEventListener("click", (ev) =>{
+    ev.preventDefault();
+        let searchName = document.getElementById("name").value; /* je creer une variable qui stocke ce que l'utilisateur a rentré*/
+        RechercheLivres(searchName); /* j'appel la fonction avec comme parametre, le parametre de recherche */
+    });
+}
+searchByName();    
+
 
