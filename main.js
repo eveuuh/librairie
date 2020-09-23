@@ -157,3 +157,13 @@ function searchByName(){ /*nom de la fonction */
 }
 searchByName();    
 
+
+function burgermenu(){
+    let navstyle= document.querySelector('ul.nav').style.display;
+    if ((navstyle) === "none" ){
+        document.querySelector('ul.nav').style.display = "flex";
+    }else {
+        document.querySelector('ul.nav').style.display = "none";
+    }
+    
+}

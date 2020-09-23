@@ -39,6 +39,10 @@ nav {
 
     
 }
+
+.nav li:nth-child(4){
+    display: none;
+}
 .nav li:nth-child(5){
     display: none;
 }
@@ -50,6 +54,47 @@ nav {
 }
 
 
+/* burgermenu */
+
+#buttonmenu{
+    background: #4A3174;
+    display: none;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: white;
+    width: auto;
+    border-radius: 5px;
+
+}
+
+.navbar{
+    width: auto;
+    display: none;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-left:10px ;
+    margin-left: 10px;
+
+}
+
+@media(max-width:800px){
+    #buttonmenu{
+        display: flex;
+    }
+    ul.nav{
+        display: none;
+    }
+    .boutton{
+        display: none;
+    }
+}
+
+@media(max-width:800px){
+    .navbar{
+        display: none;
+    }
+}
 @media(max-width:800px){
     .burgerimg{
     display: flex;
@@ -65,6 +110,11 @@ nav {
 }
 @media(max-width:800px){
     .nav li:nth-child(6){
+        display: flex;
+    }
+}
+@media(max-width:800px){
+    .nav li:nth-child(4){
         display: flex;
     }
 }
@@ -117,7 +167,7 @@ nav {
     line-height: 23px;
 }
 
-.nav li:nth-child(2){
+.nav li:nth-child(1){
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
@@ -130,7 +180,7 @@ nav {
 .boutton{
     justify-content: space-between;
     position: relative;
-    top:10px;
+    top:10px; 
 
 }
 
