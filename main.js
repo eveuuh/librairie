@@ -1,4 +1,5 @@
 
+/***************************************************/
 /* on creer un tableau associatif de clés valeurs*/
 let books = [{ 
     'title': 'harry potter à l\'ecole des sorciers',
@@ -24,8 +25,10 @@ let books = [{
     'description':'superbe histoire de sorcelerie'
     },
 ];
+/***********************************************************/
 
 
+/***********************************************************************************************/
 /* Afficher 3 livres au hasard*+ remplacer dynamiquement le contenu de la partie recommandation*/
 
 function afficheRecommandation(){ 
@@ -65,7 +68,10 @@ function afficheRecommandation(){
  
 }
 //afficheRecommandation();
+/***********************************************************************************************/
 
+
+/****************************************/
 /* afficher les livres inferieurs a 20€ */
 
 function afficheLivres(prixMax){
@@ -117,22 +123,26 @@ function afficheLivres(prixMax){
 };
 
 //afficheLivres(18);
+/****************************************/
 
 
 
 
 
 
-
+/*************************************/
 /* integration de l'API GOOGLE BOOKS */
-function RechercheLivres(recherche){
+    /*methode XHR* 
+    /*************/
+
+/*function RechercheLivres(recherche){
  
     let url= ("https://www.googleapis.com/books/v1/volumes?q="+recherche);
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-        let noBooks=JSON.parse(xhr.responseText); // .items pour recuperer que les books 
-        books= noBooks.items;
+        let noBooks=JSON.parse(xhr.responseText); //
+        books= noBooks.items; /*.items pour recuperer que les books /
         console.log(books);  
         afficheLivres(20);
         afficheRecommandation();         
@@ -142,28 +152,81 @@ function RechercheLivres(recherche){
     xhr.open("GET", url, true);
     xhr.send();
 }
+RechercheLivres("ecmascript");*/
+
+/********************/
+
+    /* parser l'api via fetch*/
+    /*************************/
+
+function RechercheLivres(recherche){
+
+    fetch('myapi.php') /* je colle l'url de l'api que je souhaite parser en fonction de mon query params*/
+    .then(response => response.json())
+    .then(data => {
+        books=data.items; /* je recupere l'index items de books pour recuperer les infos qui nous interesse */
+    afficheLivres(20); 
+    afficheRecommandation(); /*j'appel mes deux fonctions pour afficher le resultat de ma requête de maniére dynamique*/
+        })
+    .catch(error => console.error(error)) /* gestion des erreurs */
+
+}
+
 RechercheLivres("ecmascript");
 
+/*************************************/
+function start(recherche){
+    fetch('https://www.googleapis.com/books/v1/volumes?q='+recherche) /* je colle l'url de l'api que je souhaite parser en fonction de mon query params*/
+    .then(response => response.json())
+    .then(data => {
+        books=data.items; /* je recupere l'index items de books pour recuperer les infos qui nous interesse */
+    afficheLivres(20); 
+    afficheRecommandation(); /*j'appel mes deux fonctions pour afficher le resultat de ma requête de maniére dynamique*/
+        })
+    .catch(error => console.error(error)) /* gestion des erreurs */
 
-/* rendre la barre de recherche fonctionnelle*/   
+}
+
+start("ecmascript");
+
+
+/************************************************************/
+/* fonction pour rendre la barre de recherche fonctionnelle*/   
 
 function searchByName(){ /*nom de la fonction */
     let submitButton=document.getElementById("search"); 
-    submitButton.addEventListener("click", (ev) =>{
-    ev.preventDefault();
+    submitButton.addEventListener("click", (ev) =>{ /* je mets une ecoute sur le boutton pour lancer la fonction recherche*/
+    ev.preventDefault(); /*gestion des erreurs de click */
         let searchName = document.getElementById("name").value; /* je creer une variable qui stocke ce que l'utilisateur a rentré*/
         RechercheLivres(searchName); /* j'appel la fonction avec comme parametre, le parametre de recherche */
+        start(searchName);
     });
 }
 searchByName();    
+/*************************************/
 
+
+
+
+
+/*************************************/
+/* fonction pour faire le burger menu*/
 
 function burgermenu(){
     let navstyle= document.querySelector('ul.nav').style.display;
-    if ((navstyle) === "none" ){
+    if ((navstyle) === "none" ){ 
         document.querySelector('ul.nav').style.display = "flex";
     }else {
         document.querySelector('ul.nav').style.display = "none";
     }
     
 }
+/*************************************/
+
+
+
+/*****************
+/*fonction bonus*/
+
+
+/*****************/

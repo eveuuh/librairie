@@ -1,6 +1,6 @@
 **Avancée du projet Actutu**
 
-Ce qui est fait :
+*Ce qui est fait*: 
 - etape 1.
 - fichier readme fait.
 - HTML Validator ok.
@@ -11,19 +11,19 @@ Ce qui est fait :
 - etape 3: rendre le site dynamique
 - retourner 3 livres differents 
 - footer et cards responsive
--banner responsive
+- banner responsive
 - etape4: intégration API google : continuer à recuperer les infos des livres (titres,images, prix)
-
-
-Ce qu'il manque:
 - navbar menu hamburger
+- etape 5: fabriquer sa propre API
+
+
+*Ce qu'il manque*:
 - construction CSS cohérente (utiliser ID si classe unique)
 - Documenté /commenter le code
-- etape 5: fabriquer sa propre API
 - envoyer livrable sur simplon online
 
 
-Difficultés:
+*Difficultés*:
 - rendre le site responsive
-- 
 - erreur de langue dans le validateur html, ne prends pas la langue fr en compte ?
+- 
