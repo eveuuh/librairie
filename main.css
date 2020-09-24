@@ -37,35 +37,6 @@ nav {
     margin-right: 90px;
     max-width: 1000px;
 
-    
-}
-
-.nav li:nth-child(4){
-    display: none;
-}
-.nav li:nth-child(5){
-    display: none;
-}
-.nav li:nth-child(6){
-    display: none;
-}
-.burgerimg{
-    display: none;
-}
-
-
-/* burgermenu */
-
-#buttonmenu{
-    background: #4A3174;
-    display: none;
-    font-size: 20px;
-    margin-left: 10px;
-    margin-top: 10px;
-    color: white;
-    width: auto;
-    border-radius: 5px;
-
 }
 
 .navbar{
@@ -78,84 +49,15 @@ nav {
 
 }
 
-@media(max-width:800px){
-    #buttonmenu{
-        display: flex;
-    }
-    ul.nav{
-        display: none;
-    }
-    .boutton{
-        display: none;
-    }
-}
-
-@media(max-width:800px){
-    .navbar{
-        display: none;
-    }
-}
-@media(max-width:800px){
-    .burgerimg{
-    display: flex;
-    height:20px;
-    width: 20px;
-}
-}
-
-@media(max-width:800px){
-    .nav li:nth-child(5){
-        display: flex;
-    }
-}
-@media(max-width:800px){
-    .nav li:nth-child(6){
-        display: flex;
-    }
-}
-@media(max-width:800px){
-    .nav li:nth-child(4){
-        display: flex;
-    }
-}
-
-
-
-@media(max-width:800px){
-    nav {
-    display: flex;
-    flex-direction:column;
-    flex-wrap:wrap;
-    }
-}
-
-@media(max-width:800px){
-    .nav {
-    display: flex;
-    flex-direction:column;
-    flex-wrap:wrap;
-    }
-}
-
-@media(max-width:800px){
-    .boutton {
-    display: flex;
-    flex-direction:column;
-    flex-wrap:wrap;
-    }
-}
-@media(max-width:800px){
-    button.subscribe{
+.nav li:nth-child(4){
     display: none;
-
-    }
 }
-@media(max-width:800px){
-    button.loggin{
+.nav li:nth-child(5){
     display: none;
-    }
 }
-
+.nav li:nth-child(6){
+    display: none;
+}
 
 .nav{
     list-style-type: none;
@@ -206,7 +108,95 @@ nav {
 
 }
 
+/* burgermenu */
 
+.buttonmenu{
+    background: #4A3174;
+    display: none;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: white;
+    width: auto;
+    border-radius: 5px;
+
+}
+
+@media(max-width:800px){
+    .buttonmenu{
+        display: flex;
+    }
+    ul.nav{
+        display: none;
+    }
+    .boutton{
+        display: none;
+    }
+}
+
+@media(max-width:800px){
+    .navbar{
+        display: none;
+    }
+}
+@media(max-width:800px){
+    .burgerimg{
+    display: flex;
+    height:20px;
+    width: 20px;
+    }
+}
+
+@media(max-width:800px){
+    .nav li:nth-child(5){
+        display: flex;
+    }
+}
+@media(max-width:800px){
+    .nav li:nth-child(6){
+        display: flex;
+    }
+}
+@media(max-width:800px){
+    .nav li:nth-child(4){
+        display: flex;
+    }
+}
+
+
+@media(max-width:800px){
+    nav {
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    }
+}
+
+@media(max-width:800px){
+    .nav {
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    }
+}
+
+@media(max-width:800px){
+    .boutton {
+    display: flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    }
+}
+@media(max-width:800px){
+    button.subscribe{
+    display: none;
+    }
+}
+@media(max-width:800px){
+    button.loggin{
+    display: none;
+    }
+}
 
 
 /** banner **/
@@ -295,6 +285,7 @@ form {
 .logosite{
     display: flex;
 }
+
 /**recommandation**/
 
 @media (max-width: 800px){
@@ -374,6 +365,7 @@ form {
 
 /** items moins de 20€ **/
     /** titre section**/
+
 .promotion{
     display: inline-flex;
 
@@ -474,7 +466,6 @@ footer {
 
 }
 
-/** bulles et titre**/
 .logofooter{
     display: flex;
     position: relative;

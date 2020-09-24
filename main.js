@@ -1,6 +1,6 @@
 
 /***************************************************/
-/* on creer un tableau associatif de clés valeurs*/
+/* on creer un tableau associatif de clés valeurs, avec les valeurs json que l'on veut pour l'appli*/
 let books = [{ 
     'title': 'harry potter à l\'ecole des sorciers',
     'author': 'jk rowling',
@@ -29,24 +29,24 @@ let books = [{
 
 
 /***********************************************************************************************/
-/* Afficher 3 livres au hasard*+ remplacer dynamiquement le contenu de la partie recommandation*/
+/* Afficher 3 livres au hasard + remplacer dynamiquement le contenu de la partie recommandation*/
 
-function afficheRecommandation(){ 
-    let hasard = [0,1,2,3];
-    hasard.sort(() => Math.random() - 0.5);
-    let results = [];
+function afficheRecommandation(){  
+    let hasard = [0,1,2,3]; /* je defini un tableau de 4 valeurs*/
+    hasard.sort(() => Math.random() - 0.5); 
+    let results = []; 
     for (i=0; i<3;i ++) {
-        results.push(books[hasard[i]]);
+        results.push(books[hasard[i]]); /* je stock dans un tableau results les valeurs tirées au hasard et j'itére dessus*/
     }        
-    let cards = document.getElementById('cards');
+    let cards = document.getElementById('cards'); 
     cards.innerHTML="";
-    console.log(cards);
-    for(i=0; i<results.length ;i++){
+    console.log(cards); /* je crée une variable cards pour y stocker par la suite les données récupérées dans mon html*/
+    for(i=0; i<results.length ;i++){ /* je crée une boucle afin que pour chaque resultat récupéré de mon json;les reponses soient stockées comme voulue par l'architecture de mon html*/
         let card =document.createElement('div');
         card.classList.add('card'); 
-
-        let img = document.createElement('img');
-        let imgadress = results[i].volumeInfo.imageLinks != null ? results[i].volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/150"; 
+/* pour chaque élements que je veux recuperer dans l'item je creer une variable qui sera stocké et rattaché au html*/
+        let img = document.createElement('img'); 
+        let imgadress = results[i].volumeInfo.imageLinks != null ? results[i].volumeInfo.imageLinks.smallThumbnail : "https://via.placeholder.com/150"; /* si dans le fichier json il n'y a pas d'image je gére cette erreur via une image de base qui sera affichée*/
         img.setAttribute('src',imgadress);
         img.setAttribute('alt','book');
         card.appendChild(img);
@@ -61,7 +61,7 @@ function afficheRecommandation(){
         card.appendChild(author);
 
         let price = document.createElement('p');
-        price.innerText = results[i].saleInfo.listPrice != null ? results[i].saleInfo.listPrice.amount +"€" : "pas de prix"; 
+        price.innerText = results[i].saleInfo.listPrice != null ? results[i].saleInfo.listPrice.amount +"€" : "pas de prix"; /* si dans le fichier json il n'y a pas de prix,je gére cette erreur via un contenu textuel en dur */
         card.appendChild(price);
         cards.appendChild(card);
     };
@@ -127,12 +127,10 @@ function afficheLivres(prixMax){
 
 
 
-
-
-
 /*************************************/
 /* integration de l'API GOOGLE BOOKS */
-    /*methode XHR* 
+
+    /*par methode XHR* 
     /*************/
 
 /*function RechercheLivres(recherche){
@@ -156,12 +154,12 @@ RechercheLivres("ecmascript");*/
 
 /********************/
 
-    /* parser l'api via fetch*/
+    /* par fetch*/
     /*************************/
 
 function RechercheLivres(recherche){
 
-    fetch('myapi.php') /* je colle l'url de l'api que je souhaite parser en fonction de mon query params*/
+    fetch('myapi.php') /* je colle l'url de mon fichier php */
     .then(response => response.json())
     .then(data => {
         books=data.items; /* je recupere l'index items de books pour recuperer les infos qui nous interesse */
@@ -212,9 +210,9 @@ searchByName();
 /*************************************/
 /* fonction pour faire le burger menu*/
 
-function burgermenu(){
-    let navstyle= document.querySelector('ul.nav').style.display;
-    if ((navstyle) === "none" ){ 
+function burgermenu(){ 
+    let navstyle= document.querySelector('ul.nav').style.display; /* je définie une variable ou je selectionne les selecteurs de la navbar*/
+    if ((navstyle) === "none" ){  /* j'affiche ou non la navbar selon la taille définie dans le css  */
         document.querySelector('ul.nav').style.display = "flex";
     }else {
         document.querySelector('ul.nav').style.display = "none";
