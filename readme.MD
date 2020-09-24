@@ -1,3 +1,5 @@
+Ce projet est une évaluation dans le cadre de ma formation de developpeuse Web. C'est une application de type librairie, qui permets une recherche de livres via l'API GoogleBooks.
+
 **Avancée du projet Actutu**
 
 *Ce qui est fait*: 
