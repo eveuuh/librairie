@@ -22,7 +22,7 @@ Ce projet est une évaluation dans le cadre de ma formation de developpeuse Web.
 - Envoyer livrable sur simplon online
 
 *Ce qu'il manque*:
-
+- partie bonus: choisir les livres en fonction du prix
 
 *Difficultés*:
 - Rendre le site responsive (burger menu)
