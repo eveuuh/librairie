@@ -1,4 +1,4 @@
-Ce projet est une évaluation dans le cadre de ma formation de developpeuse Web. C'est une application de type librairie, qui permets une recherche de livres via l'API GoogleBooks.
+Ce projet est une évaluation dans le cadre de ma formation de developpeuse Web. C'est une application de type librairie, qui permets une recherche de livres via l'API GoogleBooks. Vous pouvez accédez à l'application sur le github Pages https://eveuuh.github.io/librairie/ .
 
 **Avancée du projet Actutu**
 
